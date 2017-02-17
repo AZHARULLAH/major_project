@@ -1,0 +1,111 @@
+/* TOP SECTION */
+
+.ece_name
+{
+	margin-left: 450px;
+	text-align: center;
+}
+
+.top div
+{
+	position: absolute;
+}
+
+.top
+{	
+	margin-top: 10px;
+}
+
+/* LEFT SECTION */
+
+.spacing-left
+{
+	margin-top: 115px;
+}
+
+.comp_top_spacing
+{
+	margin-top: 553px;
+}
+
+/* RIGHT SECTION */
+
+.spacing-right
+{
+	margin-top: 115px;
+}
+
+#cie_id2 
+{
+    margin-top: 25px;
+}
+
+.maths_top_spacing
+{
+	margin-top: 130px;
+}
+
+/* BOTTOM SECTION */
+
+.bottom
+{
+	margin-top: 1250px;
+}
+
+/* IMAGES */
+
+#entrance
+{
+	position: absolute;
+	top: 400px;
+	margin-left: 45px;
+}
+
+#opac
+{
+	position: absolute;
+	top: 475px;
+	margin-left: 95px;
+}
+
+#staff
+{
+	position: absolute;
+	top: 380px;
+	margin-left: 610px;
+}
+
+#reading_area1
+{
+	position: absolute;
+	top: 180px;
+	margin-left: 460px;
+}
+
+#reading_area2
+{
+	position: absolute;
+	top: 280px;
+	margin-left: 460px;
+}
+
+#reading_area3
+{
+	position: absolute;
+	top: 975px;
+	margin-left: 460px;
+}
+
+#reading_area4
+{
+	position: absolute;
+	top: 1075px;
+	margin-left: 460px;
+}
+
+#reading_area5
+{
+	position: absolute;
+	top: 1175px;
+	margin-left: 460px;
+}

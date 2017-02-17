@@ -1,0 +1,23 @@
+<ion-view view-title="Search">
+    <ion-content ng-controller="searchBoxController">
+
+        <h2>Search</h2>
+
+        <!--<div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>-->
+
+        <div class="input item-input-inset">
+            <label class="item-input-wrapper">
+                <i id="searchIcon" class="icon ion-ios-search placeholder-icon"></i>
+                <input id="searchBox" type="search" placeholder="Search" ng-model="searchQueryInput">
+            </label>
+        </div>
+        <button ng-click="doSearch()" id="searchButton" class="button button-block button-balanced icon-right ion-search">OPAC search</button>
+
+    </ion-content>
+
+</ion-view>

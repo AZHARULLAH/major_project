@@ -1,0 +1,19 @@
+<ion-view view-title="Search">
+    <ion-content ng-controller="stateResultController">
+
+        <h2>Search Results</h2>
+
+        <div class="cards">
+            <div class="card" ng-repeat="book in books">
+                <a style="text-decoration: none;" ng-click="storeRack(book.bookRack)">
+                    <div class="item item-text-wrap">
+                        <p> <span class="sidenames">Book Title:</span> <span class="title">{{ book.bookTitle }}</span> </p>
+                        <!--<p> <span class="sidenames">Book Link:</span> <span class="link">{{ book.bookLink }}</span> </p>-->
+                        <p> <span class="sidenames">Book Availability:</span> <span style="color:green" ng-class="{notavailable: book.bookAvailabilityStatus === 'Book not available'}" >{{ book.bookAvailabilityStatus }}</span> </p>
+                        <p ng-hide="book.bookRack === 'NA'"> <span class="sidenames">Book Rack Number:</span> <span class="rack">{{ book.bookRack }}</span> </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+</ion-view>

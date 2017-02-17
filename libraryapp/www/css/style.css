@@ -1,0 +1,67 @@
+/* Empty. Add your own CSS if you like */
+
+h2
+{
+    color: limegreen;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#searchBox
+{
+    /*line-height: 50px;*/
+    height: 45px;
+    font-size: 20px;
+    color: green;
+}
+
+label
+{
+    border: 2px solid green;
+}
+
+#searchIcon
+{
+    font-size: 35px;
+    color: darkgreen;
+}
+
+#searchButton
+{
+    margin-left: 15%;
+    margin-top: 10%;
+    width: 70% !important;
+}
+
+.sidenames
+{
+    color: maroon;
+}
+
+.title
+{
+    color: black;
+    font-weight: bold;
+}
+
+/*.link
+{
+    color: blue;
+    text-decoration: underline;
+}*/
+
+.notavailable
+{
+    color: red !important;
+}
+
+.rack
+{
+    color: blue;
+}
+
+.iframe-wrapper iframe{
+  width: 100%;
+  height: 100%;
+}

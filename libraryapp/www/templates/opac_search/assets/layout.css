@@ -1,0 +1,72 @@
+body .section
+{
+	position: absolute;
+	/*overflow: auto;*/
+}
+
+body
+{
+	background-color: #ffe0b2;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	/*font-size: 50% !important;*/
+}
+
+p
+{
+	margin-top: 0px;
+	margin-bottom: 2px;
+	font-size: 15px !important;
+	font-weight: bold;
+}
+
+.rack_number
+{
+	width: 40px;
+	text-align: center;
+}
+
+.rack_part1, .rack_part2
+{
+	min-width: 120px;
+	text-align: center;
+}
+
+table
+{
+	border:none;
+	border-collapse: separate;
+	border-spacing: 0 12px;
+}
+
+table td
+{
+	border: 1px solid #000;
+}
+
+.left, .middle, .right
+{
+	max-width: 330px;
+}
+
+.left
+{
+	margin-left: 100px;
+}
+
+.middle
+{
+	margin-left: 400px;
+}
+
+.right
+{
+	margin-left: 700px;
+	margin-right: 100px;
+}
+
+.dept
+{
+	margin-bottom: 10px;
+}
