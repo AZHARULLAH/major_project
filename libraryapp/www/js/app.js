@@ -7,7 +7,7 @@
 
 // $ionicMaterialConfigProvider.enableForAllPlatforms();
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-material', 'ionMdInput'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-material', 'ionMdInput', 'ngCordovaBeacon'])
 
 	.run(function ($ionicPlatform, $ionicPopup) {
 		$ionicPlatform.ready(function () {
@@ -21,6 +21,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 				// org.apache.cordova.statusbar required
 				StatusBar.styleDefault();
 			}
+			// Request Bluetooth
+			cordova.plugins.diagnostic.isBluetoothAvailable(function (available) {
+				console.log("Bluetooth is " + (available ? "available" : "not available"));
+				if (!available) {
+					cordova.plugins.diagnostic.setBluetoothState(function (available) {
+						console.log("Bluetooth is " + (available ? "available2" : "not available2"));
+						if (!available) {
+							cordova.plugins.diagnostic.switchToBluetoothSettings();
+						}
+					}, function (error) {
+						console.error("Theee following error occurred: " + error);
+					}, true);
+				}
+			}, function (error) {
+				console.error("The following error occurred: " + error);
+			});
+			cordova.plugins.diagnostic.registerBluetoothStateChangeHandler(function (state) {
+				// "unknown", "resetting", "unsupported", "unauthorized", "powered_off", "powered_on"
+				if (state == "powered_off") {
+					cordova.plugins.diagnostic.setBluetoothState(function (available) {
+						console.log("Bluetooth is " + (available ? "available2" : "not available2"));
+						if (!available) {
+							cordova.plugins.diagnostic.switchToBluetoothSettings();
+						}
+					}, function (error) {
+						console.error("Theee following error occurred: " + error);
+					}, true);
+				}
+			});
+
 		});
 		// Disable BACK button on home
 		$ionicPlatform.registerBackButtonAction(function (event) {
@@ -85,28 +115,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 				}
 			})
 
-			.state('app.share', {
-				url: '/share',
-				views: {
-					'menuContent': {
-						templateUrl: 'templates/playlists.html',
-						controller: 'PlaylistsCtrl'
-					}
-				},
-				'fabContent': {
-					template: ''
+			.state('app.beacons', {
+				url: '/beacons',
+				views: 
+				{
+					'menuContent': { templateUrl: 'templates/beacons.html', controller: 'beaconController' }
 				}
 			})
 
-			.state('app.books', {
-				url: '/books',
-				views: {
-					'menuContent': {
-						templateUrl: 'templates/books.html',
-						controller: 'booksController'
-					}
-				}
-			});
+			// .state('app.share', {
+			// 	url: '/share',
+			// 	views: {
+			// 		'menuContent': {
+			// 			templateUrl: 'templates/playlists.html',
+			// 			controller: 'PlaylistsCtrl'
+			// 		}
+			// 	},
+			// 	'fabContent': {
+			// 		template: ''
+			// 	}
+			// })
+
+			// .state('app.books', {
+			// 	url: '/books',
+			// 	views: {
+			// 		'menuContent': {
+			// 			templateUrl: 'templates/books.html',
+			// 			controller: 'booksController'
+			// 		}
+			// 	}
+			// })
+			;
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/app/search');
 	}]);

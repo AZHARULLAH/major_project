@@ -1,0 +1,42 @@
+<ion-view view-title="Nearby beacons">
+
+    <ion-content ng-controller="beaconController">
+
+        <h2>Nearby Beacons</h2>
+
+        <!--<div class="list">
+            <div class="item" ng-repeat="(key, value) in beacons">
+                <div class="row">
+                    <div class="col truncate">
+                        {{value.uuid}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        major: {{value.major}}
+                    </div>
+                    <div class="col">
+                        minor: {{value.minor}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{value.proximity}}
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="cards" style="margin-top: 30px;">
+            <div class="card" ng-repeat="(key, value) in beacons">
+                <div class="item item-text-wrap">
+                    <p> <span class="sidenames">UUID:</span> <span class="title">{{ value.uuid }}</span> </p>
+                    <p> <span class="sidenames">Major:</span> <span class="title">{{ value.major }}</span> </p>
+                    <p> <span class="sidenames">Minor:</span> <span class="title">{{ value.minor }}</span> </p>
+                    <p> <span class="sidenames">Proximity:</span> <span class="title">{{ value.proximity }}</span> </p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

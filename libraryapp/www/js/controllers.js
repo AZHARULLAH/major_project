@@ -139,7 +139,7 @@ angular.module('starter.controllers', ['ionic'])
 		$scope.storeRack = function (bookRack) {
 			window.localStorage.setItem("rackNumber", bookRack);
 			console.log("Rack is", window.localStorage.getItem("rackNumber"));
-			if(bookRack != "NA"){
+			if (bookRack != "NA") {
 				$state.go('app.mapLayout');
 			}
 			else {
@@ -163,12 +163,11 @@ angular.module('starter.controllers', ['ionic'])
 		var rackno = window.localStorage.getItem("rackNumber");
 
 		// $.noConflict();
-		jQuery(document).ready(function($){
-			function coloring()
-			{
+		jQuery(document).ready(function ($) {
+			function coloring() {
 				var flag = 0;
 				var to_be_colored = rackno;
-				console.log("In jQuery, rack is",to_be_colored);
+				console.log("In jQuery, rack is", to_be_colored);
 				// alert(to_be_colored);
 				$('.rack_part1').each(function () {
 					var thisval = $(this).text();
@@ -192,12 +191,14 @@ angular.module('starter.controllers', ['ionic'])
 					}
 				});
 				if (flag == 0) {
-					alert($ionicHistory.backView());
+					// alert($ionicHistory.backView());
 					alert("The required book rack is not present in this area!")
 				}
 			}
 			setTimeout(coloring, 1000);
 		})
+
+		// to_be_colored = null;
 
 		// $scope.iframeURL = "http://athena.nitc.ac.in/azharullahshariff_b130727cs/assets/library_layout.html"
 
@@ -309,4 +310,21 @@ angular.module('starter.controllers', ['ionic'])
 
 		// console.log("hhere it is!");
 
+	})
+
+	.controller("beaconController", function ($scope, $rootScope, $ionicPlatform, $cordovaBeacon) {
+
+		$scope.beacons = {};
+		$ionicPlatform.ready(function () {
+			$cordovaBeacon.requestWhenInUseAuthorization();
+			$rootScope.$on("$cordovaBeacon:didRangeBeaconsInRegion", function (event, pluginResult) {
+				var uniqueBeaconKey;
+				for (var i = 0; i < pluginResult.beacons.length; i++) {
+					uniqueBeaconKey = pluginResult.beacons[i].uuid + ":" + pluginResult.beacons[i].major + ":" + pluginResult.beacons[i].minor;
+					$scope.beacons[uniqueBeaconKey] = pluginResult.beacons[i];
+				}
+				$scope.$apply();
+			});
+			$cordovaBeacon.startRangingBeaconsInRegion($cordovaBeacon.createBeaconRegion("estimote", "B9407F30-F5F8-466E-AFF9-25556B57FE6D"));
+		});
 	});
