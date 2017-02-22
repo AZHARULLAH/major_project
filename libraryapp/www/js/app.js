@@ -7,22 +7,34 @@
 
 // $ionicMaterialConfigProvider.enableForAllPlatforms();
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-material', 'ionMdInput'])
 
-	.run(function ($ionicPlatform) {
+	.run(function ($ionicPlatform, $ionicPopup) {
 		$ionicPlatform.ready(function () {
 			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 			// for form inputs)
 			if (window.cordova && window.cordova.plugins.Keyboard) {
 				cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 				cordova.plugins.Keyboard.disableScroll(true);
-
 			}
 			if (window.StatusBar) {
 				// org.apache.cordova.statusbar required
 				StatusBar.styleDefault();
 			}
 		});
+		// Disable BACK button on home
+		$ionicPlatform.registerBackButtonAction(function (event) {
+			if (true) { // your check here
+				$ionicPopup.confirm({
+					title: 'System warning',
+					template: 'are you sure you want to exit?'
+				}).then(function (res) {
+					if (res) {
+						ionic.Platform.exitApp();
+					}
+				})
+			}
+		}, 100);
 	})
 
 	.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -61,7 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 				url: '/maplayout',
 				views:
 				{
-					'menuContent': { templateUrl: 'templates/opac_search/library_layout.html', controller: 'layout_controller' }
+					'menuContent': { templateUrl: 'templates/opac_search/library_layout.html', controller: 'mapController' }
 				}
 			})
 
@@ -69,7 +81,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 				url: '/layout',
 				views: 
 				{
-					'menuContent': { templateUrl: 'templates/layout.html', controller: 'static_layout_controller' }
+					'menuContent': { templateUrl: 'templates/layout.html', controller: 'mapController' }
 				}
 			})
 
@@ -80,18 +92,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 						templateUrl: 'templates/playlists.html',
 						controller: 'PlaylistsCtrl'
 					}
+				},
+				'fabContent': {
+					template: ''
 				}
 			})
 
-			.state('app.single', {
-				url: '/playlists/:playlistId',
+			.state('app.books', {
+				url: '/books',
 				views: {
 					'menuContent': {
-						templateUrl: 'templates/playlist.html',
-						controller: 'PlaylistCtrl'
+						templateUrl: 'templates/books.html',
+						controller: 'booksController'
 					}
 				}
 			});
 		// if none of the above states are matched, use this as the fallback
-		$urlRouterProvider.otherwise('/app');
+		$urlRouterProvider.otherwise('/app/search');
 	}]);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.libraryapp284258" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.libraryapp705983" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>libraryapp</name>
   <description>
         An Ionic Framework and Cordova project.
@@ -17,12 +17,6 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
-  <allow-intent href="http://*/*" launch-external="yes"/>
-  <allow-intent href="https://*/*" launch-external="yes"/>
-  <allow-intent href="tel:*" launch-external="yes"/>
-  <allow-intent href="sms:*" launch-external="yes"/>
-  <allow-intent href="mailto:*" launch-external="yes"/>
-  <allow-intent href="geo:*" launch-external="yes"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
@@ -78,5 +72,5 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-  <allow-navigation href="http://192.168.0.100:8100"/>
+  <allow-navigation href="http://192.168.40.179:8100"/>
 </widget>

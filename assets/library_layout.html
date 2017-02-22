@@ -18,13 +18,13 @@
 
         <script type="text/javascript">
 
-                $(document).ready(function(){
-                        var val = window.localStorage.getItem("rackNumber");
-                        console.log("Val is", val);
-                        // Do whatever you want with your parameter val
-                        document.getElementById("rack_storage").innerHTML = val;
-                })
-                
+            function init(val)
+            {
+                // Do whatever you want with your parameter val
+                // alert(val);
+                document.getElementById("rack_storage").innerHTML = val;
+                // coloring();
+            }
         </script>
 
         <script type="text/javascript" src = "nodes.js"></script>

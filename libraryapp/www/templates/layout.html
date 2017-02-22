@@ -1,7 +1,187 @@
-<ion-view view-title="Library Layout">
+<ion-view view-title="Library Layout" hide-nav-bar="true">
+<ion-content>
+    <ion-scroll zooming="true" direction="xy" scrollbar-x="false" scrollbar-y="false" style="width: 100%; height: 100%" delegate-handle="mainScroll" overflow-scroll="false">
 
-    <ion-content scroll="true" overflow-scroll="true" class="iframe-wrapper">
-        <iframe data-tap-disabled="true" src="{{iframeURL}}"></iframe>
-    </ion-content>
-    
+        <div id="whole_map">
+
+            <div class="top section wrapper">
+
+                <p class="dept_name ece_name">ELECTRONICS ENGINEERING</p>
+
+                <div id="ece_id1" class="ece dept left">
+                                <table>
+                                        <tr ng-repeat = "rack in ece1">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <div id="ece_id2" class="ece dept middle">
+                                <table>
+                                        <tr ng-repeat = "rack in ece2">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <div id="ece_id3" class="ece dept right">
+                                <table>
+                                        <tr ng-repeat = "rack in ece3">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                </div>
+
+
+                <!-- LEFT SECTION -->
+
+                <div class="left section wrapper spacing-left">
+
+                        <p class="dept_name">ELECTRICAL ENGINEERING</p>
+                        <div id="eee_id" class="eee dept">
+                                <table>
+                                        <tr ng-repeat = "rack in eee | orderBy: '-' ">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name comp_top_spacing">COMPUTER ENGINEERING</p>
+                        <div id="cse_id" class="cse dept">
+                                <table>
+                                        <tr ng-repeat = "rack in cse">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name">COMMUNICATION ENGINEERING</p>
+                        <div id="coe_id" class="coe dept">
+                                <table>
+                                        <tr ng-repeat = "rack in coe">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                </div>
+
+
+                <!-- RIGHT SECTION -->
+
+                <div class="right section wrapper spacing-right">
+
+                        <p class="dept_name">CONTROL ENGINEERING</p>
+                        <div id="cte_id" class="cte dept">
+                                <table>
+                                        <tr ng-repeat = "rack in cte">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name">CIVIL ENGINEERING</p>
+                        <div id="cie_id1" class="cie dept">
+                                <table>
+                                        <tr ng-repeat = "rack in cie1">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <div id="cie_id2" class="cie dept">
+                                <table>
+                                        <tr ng-repeat = "rack in cie2">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name">ARCHITECHTURE</p>
+                        <div id="art_id" class="art dept">
+                                <table>
+                                        <tr ng-repeat = "rack in art">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name  maths_top_spacing">MATHEMATICS</p>
+                        <div id="mtm_id" class="mtm dept">
+                                <table>
+                                        <tr ng-repeat = "rack in mtm">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                        <p class="dept_name">PHYSICS</p>
+                        <div id="phy_id" class="comp dept">
+                                <table>
+                                        <tr ng-repeat = "rack in phy">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                </div>
+
+                <!-- BOTTOM MIDDLE PART -->
+
+                <div class="bottom middle section wrapper">
+
+                        <p class="dept_name">GENERAL ENGINEERING</p>
+                        <div id="gne_id" class="gne dept">
+                                <table>
+                                        <tr ng-repeat = "rack in gen">
+                                                <td class="rack_number">{{ rack.no }}</td>
+                                                <td class="rack_part1">{{ rack.id1 }}</td>
+                                                <td class="rack_part2">{{ rack.id2 }}</td>
+                                        </tr>
+                                </table>
+                        </div>
+
+                </div>
+
+                    <!-- IMAGES -->
+                    <img id="entrance" src="img/entrance.png" height="75px" width="45px">
+                    <img id="opac" src="img/opac.png" height="350px" width="300px">
+                    <img id="reading_area1" src="img/reading_area.png" height="40px" width="140px">
+                    <img id="reading_area2" src="img/reading_area.png" height="40px" width="140px">
+                    <img id="reading_area3" src="img/reading_area.png" height="40px" width="140px">
+                    <img id="reading_area4" src="img/reading_area.png" height="40px" width="140px">
+                    <img id="reading_area5" src="img/reading_area.png" height="40px" width="140px">
+                    <!-- <img id="reading_area6" src="img/reading_area.png" height="40px" width="140px"> -->
+                    <img id="staff" src="img/staff.png" height="80px" width="50px">
+
+            </div>
+
+    </ion-scroll>
+</ion-content>
 </ion-view>
